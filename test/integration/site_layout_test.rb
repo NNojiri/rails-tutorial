@@ -15,4 +15,5 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_template 'users/new'
     assert_select "title", full_title("Sign up")
   end
+  
 end
