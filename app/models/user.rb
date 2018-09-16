@@ -14,6 +14,10 @@ class User < ApplicationRecord
     update_attribute(:remember_token, User.digest(remember_token))
   end
   
+  def authenticated?(remember_token)
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+  
   class << self
     
     # 渡された文字列のハッシュを返す
@@ -25,7 +29,7 @@ class User < ApplicationRecord
     end
     
     # ランダムなトークンを返す
-    def self.new_token
+    def new_token
       SecureRandom.urlsafe_base64
     end
   end
