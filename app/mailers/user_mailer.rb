@@ -1,21 +1,11 @@
 class UserMailer < ApplicationMailer
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.user_mailer.accuount_activation.subject
-  #
-  def accuount_activation
-    @greeting = "Hi"
-
-    mail to: "to@example.org"
+  def accuount_activation(user)
+    @user = user
+    
+    mail to: user.email, subject: "Account activation"
   end
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.user_mailer.password_reset.subject
-  #
   def password_reset
     @greeting = "Hi"
 
