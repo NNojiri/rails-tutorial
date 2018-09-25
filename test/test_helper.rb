@@ -34,7 +34,6 @@ class ActionDispatch::IntegrationTest
                                 } 
     }
       
-    session[:user_id] = user.id
   end
   
 end
